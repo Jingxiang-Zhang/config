@@ -1,6 +1,6 @@
 配置文件加密与解密
 ===================
-###1. xml文件编写
+## 1. xml文件编写
 **示例代码如下:**
 ```
 from config.write_file import Write
@@ -22,10 +22,15 @@ xml.write("config.txt")  # 写入文件
  <emile id="MAIL_PORT">465</emile>
 </server_ini>
 ```
+
 <br>
----
-###2. xml文件读取
+
+------
+
+## 2. xml文件读取
+
 **示例代码如下:**
+
 ```
 from config.read_file import Read
 
@@ -37,7 +42,9 @@ tile = Read.tile(xml, element_list=("key", "emile"), interpret=True)
 #    整数被替换为int型，小数被替换为float型
 print(tile)
 ```
+
 输出结果为：
+
 ```
 {
     'SECRET_KEY': '????', 
@@ -45,18 +52,24 @@ print(tile)
     'MAIL_PORT': 465
 }
 ```
+
 <br>
----
-###3. 快速使用
+
+-----
+
+## 3. 快速使用
+
 通过以下函数可以在命令行界面强制用户输入解密密码，密码错误会退出程序，
 密码正确时读取文件，并进行tile操作，取出key和emile分组，返回值与上一个
 程序相同
+
 ```
 from config.check_pwd import CheckPwd
 
 tile = CheckPwd.check_pwd_input_with_force("config.txt"),
         group=("key", "emile"))
  ```
+ 
 <br>
 <br>
-<font color=Gray size=7 face="黑体">  遇到问题请联系zjx</font>
+遇到问题请联系zjx
